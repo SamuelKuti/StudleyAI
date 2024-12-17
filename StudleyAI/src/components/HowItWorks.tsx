@@ -28,13 +28,13 @@ export const HowItWorks: FC = () => {
   return (
     <section className="py-16">
       <div className="container mx-auto px-5">
-        <h2 className="text-3xl font-bold text-center mb-12">How it works</h2>
+        <h2 className="text-3xl text-grayText text-center mb-6">How it works</h2>
         <div className="grid md:grid-cols-2 gap-8">
           {items.map((item, index) => (
-            <div key={index} className="bg-white rounded-lg p-6 shadow-sm">
-              <div className="flex items-center gap-3 mb-4">
-                <img src={item.icon} alt="" className="w-6 h-6" />
-                <span className="font-medium">{item.title}</span>
+            <div key={index} className="bg-white rounded-lg p-6">
+              <div className="flex justify-center items-center gap-3 mb-4">
+                <img src={item.icon} alt="" className="w-8 h-8" />
+                <span className="font-medium text-grayText text-xl">{item.title}</span>
               </div>
               <img 
                 src={item.image} 
@@ -45,6 +45,11 @@ export const HowItWorks: FC = () => {
           ))}
         </div>
       </div>
+      <div className="flex justify-center mt-10">
+          <a href="#" className="bg-primary text-white px-5 py-2.5 shadow-[3px_3px_0_#000] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none transition-all">
+            Get started for free
+          </a>
+        </div>
     </section>
   );
 };

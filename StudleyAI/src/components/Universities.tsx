@@ -1,4 +1,3 @@
-
 const universities = [
   { name: 'Princeton', logo: '../../public/assets/princeton.png' },
   { name: 'Berkeley', logo: '../../public/assets/berkeley.png' },
@@ -9,28 +8,30 @@ const universities = [
 
 export const Universities = () => {
   return (
-    <div className="universities-container">
-      <div className="universities">
-        {/* Original set of logos */}
+    <div className="overflow-hidden w-full relative">
+      <h2 className="text-xl text-center mt-8 text-grayText mb-10">
+        Used by top students at leading universities
+      </h2>
+
+      <div className="flex animate-scroll mt-2 gap-10 w-max">
         {universities.map((uni, index) => (
           <img
             key={`uni-${index}`}
             src={uni.logo}
             alt={`${uni.name} logo`}
-            width={100}
-            height={100}
+            className="object-contain h-[50px]"
           />
         ))}
-        {/* Duplicate set of logos for seamless scrolling */}
+
         {universities.map((uni, index) => (
           <img
-            key={`uni-dup-${index}`}
+            key={`uni-duplicate-${index}`}
             src={uni.logo}
-            alt="University logo"
-            width={100}
-            height={100}
+            alt={`${uni.name} logo`}
+            className="object-contain h-[50px]"
           />
         ))}
+
       </div>
     </div>
   );

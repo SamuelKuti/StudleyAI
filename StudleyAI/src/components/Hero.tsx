@@ -3,28 +3,37 @@ import ShieldIcon from '../../public/assets/shield.png';
 
 export const Hero: FC = () => {
   return (
-    <section className="text-center py-5 pb-15 bg-gradient-to-b from-white to-[#ffe3d1]">
-      <div className="container mx-auto px-5">
-        <p className="text-primary font-bold mb-0 inline-flex items-center gap-2">
-          <img src={ShieldIcon} alt="Shield icon" className="w-5 h-5" />
-          Ethical AI, maintaining academic integrity
-        </p>
-        <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-8">
-          Crush Your Exams in Half the Study Time
-        </h1>
-        <div className="mb-5">
-          <button className="bg-primary text-white font-semibold px-5 py-2.5 shadow-[3px_3px_0_#000] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none transition-all">
-            Start Learning Faster - it's free
-          </button>
-        </div>
-        <div className="inline-block mb-10">
-          <div className="inline-block">
-            {/* Add avatar images here */}
-          </div>
-          <p className="inline-block align-middle ml-4 font-medium">
-            Loved by 10,000+
+    <section className="pb-5 md:pt-5 pt-20  flex flex-col items-center justify-center pb-15 bg-gradient-to-b from-white to-[#FFBDAB]">
+      <div className="container flex flex-col items-center justify-center mx-auto px-5">
+        <div>
+          <p className="text-primary mb-0 inline-flex items-center gap-2">
+            <img src={ShieldIcon} alt="Shield icon" className="w-5 h-5" />
+            Ethical AI, maintaining academic integrity
           </p>
+          <h1 className="text-4xl md:text-5xl font-medium mb-8">
+            Crush Your Exams in Half the Study Time
+          </h1>
+          <div className="flex">
+            <button className="bg-primary text-white px-5 py-2.5 shadow-[3px_3px_0_#000] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none transition-all">
+              Start Learning Faster - it's free
+            </button>
+            <div className="flex">
+              <div className="flex mt-2 ml-4">
+                    <img src="../../public/assets/jam_maddy.png" alt="Jamila and Maddy Avatar" className="w-8 h-8 border-radius-full -mr-2" />
+                    <img src="../../public/assets/yahia.png" alt="Yahia Avatar" className="w-8 h-8 border-radius-full -mr-2" />
+                    <img src="../../public/assets/sam.png" alt="Sam Avatar" className="w-8 h-8 border-radius-full -mr-2" />
+                    <img src="../../public/assets/roman.png" alt="Roman Avatar" className="w-8 h-8 border-radius-full -mr-2" />
+              </div>
+              <p className="inline-block mt-3 align-middle ml-4 font-medium text-grayText">
+                Loved by 10,000+
+              </p>
+            </div>
+          </div>
         </div>
+        <section className="mx-[130px] my-[60px] md:mx-[160px]">
+          <div className="bg-peachBg rounded-3xl w-[470px] h-[300px] md:w-[900px] md:h-[450px] p-8 md:p-16">
+          </div>
+        </section>
       </div>
     </section>
   );
