@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    @apply m-0 p-0 font-sans text-black bg-white box-border;
+  }
+}
+
+@layer components {
+  .underline-hover {
+    @apply relative no-underline text-inherit;
+  }
+  
+  .underline-hover::after {
+    @apply content-[''] absolute -bottom-0.5 left-0 w-0 h-0.5 bg-primary transition-[width] duration-300 ease-in-out;
+  }
+  
+  .underline-hover:hover::after {
+    @apply w-full;
+  }
+}

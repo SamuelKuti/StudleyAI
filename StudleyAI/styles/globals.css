@@ -1,0 +1,21 @@
+.universities-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.universities {
+  display: flex;
+  animation: scroll 20s linear infinite;
+  /* Make sure the width is at least 2x the container to ensure smooth scrolling */
+  min-width: 200%;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+} 
