@@ -1,9 +1,9 @@
-import { Hero } from '../components/Hero';
-import { Universities } from '../components/Universities';
-import { HowItWorks } from '../components/HowItWorks';
-import { Testimonials } from '../components/Testimonials';
-import { FAQ } from '../components/FAQ';
-import { FinalCTA } from '../components/FinalCTA';
+import { Hero } from '../components/landing/Hero';
+import { Universities } from '../components/landing/Universities';
+import { HowItWorks } from '../components/landing/HowItWorks';
+import { Testimonials } from '../components/landing/Testimonials';
+import { FAQ } from '../components/landing/FAQ';
+import { FinalCTA } from '../components/landing/FinalCTA';
 
 export const Home = () => {
   return (

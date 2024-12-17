@@ -20,7 +20,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+
+    /* Add either incremental or composite */
+    "incremental": true
   },
   "include": ["src"]
 }

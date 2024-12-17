@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { FAQItem } from '../types';
+import { FAQItem } from '../../types';
 
 const faqItems: FAQItem[] = [
   {

@@ -1,6 +1,5 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { X } from 'lucide-react';
-import { SignupDialog } from './SignupDialog';
 
 interface DialogProps {
   isOpen: boolean;

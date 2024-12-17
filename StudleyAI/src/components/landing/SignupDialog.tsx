@@ -1,6 +1,5 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { X } from 'lucide-react';
-import { LoginDialog } from './LoginDialog';
 
 interface DialogProps {
   isOpen: boolean;
@@ -86,7 +85,7 @@ export const SignupDialog: FC<DialogProps> = ({ isOpen, onClose, onSwitchToLogin
               </a>
             </p>
 
-            <a href="#" className="text-sm text-gray-500 underline hover:text-gray-700 block">
+            <a href="/dashboard" className="text-sm text-gray-500 underline hover:text-gray-700 block">
               Skip for now
             </a>
           </div>

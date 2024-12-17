@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { HowItWorksItem } from '../types';
+import { HowItWorksItem } from '../../types';
 import { SignupDialog } from './SignupDialog';
 import { LoginDialog } from './LoginDialog';
 

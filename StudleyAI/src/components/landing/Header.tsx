@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Logo from '../../public/assets/logo_orange.png';
+import Logo from '../../../public/assets/logo_orange.png';
 import { SignupDialog } from './SignupDialog';
 import { LoginDialog } from './LoginDialog';
 
