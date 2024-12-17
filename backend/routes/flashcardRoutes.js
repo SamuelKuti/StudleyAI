@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const flashcardService = require('../services/flashcardService');
+const requireAuth = require('../middleware/authMiddleware');
 
 // Configure multer for PDF upload
 const upload = multer({
@@ -17,7 +18,7 @@ const upload = multer({
   }
 });
 
-router.post('/generate', upload.single('pdf'), async (req, res) => {
+router.post('/generate', ...requireAuth, upload.single('pdf'), async (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ error: 'No PDF file provided' });
@@ -30,4 +31,4 @@ router.post('/generate', upload.single('pdf'), async (req, res) => {
   }
 });
 
-module.exports = router; 
+module.exports = router;
