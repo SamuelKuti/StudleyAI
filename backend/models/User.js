@@ -29,7 +29,11 @@ const userSchema = new mongoose.Schema({
         default: false
     },
     verificationToken: String,
-    verificationExpires: Date
+    verificationExpires: Date,
+    profilePicture: {
+        type: String,
+        default: null
+    }
 });
 
 // Hash password before saving

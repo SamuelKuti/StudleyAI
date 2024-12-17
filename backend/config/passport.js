@@ -35,14 +35,19 @@ passport.use(new GoogleStrategy({
   callbackURL: "/api/auth/google/callback"
 }, async (accessToken, refreshToken, profile, done) => {
   try {
+    const profilePicture = profile.photos ? profile.photos[0].value : null;
     let user = await User.findOne({ googleId: profile.id });
     
     if (!user) {
       user = await User.create({
         googleId: profile.id,
         email: profile.emails[0].value,
-        name: profile.displayName
+        name: profile.displayName,
+        profilePicture: profilePicture
       });
+    } else if (profilePicture) {
+      user.profilePicture = profilePicture;
+      await user.save();
     }
     
     return done(null, user);

@@ -155,6 +155,12 @@ router.get('/google/callback',
     async (req, res) => {
         try {
             const user = req.user;
+            
+            // Save Google profile picture if available
+            if (req.user._json && req.user._json.picture) {
+                user.profilePicture = req.user._json.picture;
+                await user.save();
+            }
 
             // Automatically verify Google OAuth users
             if (!user.isVerified) {
