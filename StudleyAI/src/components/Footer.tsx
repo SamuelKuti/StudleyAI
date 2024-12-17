@@ -1,11 +1,18 @@
-import { FC } from 'react';
+import { useState, FC } from 'react';
 import { Link } from 'react-router-dom';
+import { LoginDialog } from './LoginDialog';  // Import LoginDialog
+import { SignupDialog } from './SignupDialog'; // Import SignupDialog
 
 export const Footer: FC = () => {
+  const [activeDialog, setActiveDialog] = useState<'login' | 'signup' | null>(null); // Track the active dialog
+
+  const openLoginDialog = () => setActiveDialog('login');
+  const openSignupDialog = () => setActiveDialog('signup');
+  const closeDialog = () => setActiveDialog(null);  // Close the dialog
+
   return (
     <footer className="bg-black text-white px-5 md:px-40 py-10">
       <div className="container mx-auto">
-        
         <div className="flex flex-row justify-between items-start mb-5">
           <div className="flex justify-between items-start mb-5">
             <div className="flex flex-col items-center justify-between w-full md:w-auto gap-5">
@@ -14,7 +21,10 @@ export const Footer: FC = () => {
                 alt="Studley Logo" 
                 className="w-[150px]"
               />
-              <button className="bg-light text-black shadow-grayButton px-5 py-2.5 shadow-[3px_3px_0_#000] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none transition-all w-full md:w-auto">
+              <button
+                onClick={openSignupDialog} // Open the signup dialog
+                className="bg-light text-black shadow-grayButton px-5 py-2.5 shadow-[3px_3px_0_#000] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none transition-all w-full md:w-auto"
+              >
                 Try for free
               </button>
             </div>
@@ -51,6 +61,20 @@ export const Footer: FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Dialogs */}
+      <LoginDialog 
+        isOpen={activeDialog === 'login'} 
+        onClose={closeDialog} 
+        title="Login to your account"
+        onSwitchToSignup={openSignupDialog} // Handler for switching to signup
+      />
+      <SignupDialog 
+        isOpen={activeDialog === 'signup'} 
+        onClose={closeDialog} 
+        title="Create a new account"
+        onSwitchToLogin={openLoginDialog} // Handler for switching to login
+      />
     </footer>
   );
 };

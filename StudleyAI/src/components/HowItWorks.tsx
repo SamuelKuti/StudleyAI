@@ -1,5 +1,7 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { HowItWorksItem } from '../types';
+import { SignupDialog } from './SignupDialog';
+import { LoginDialog } from './LoginDialog';
 
 const items: HowItWorksItem[] = [
   {
@@ -25,6 +27,12 @@ const items: HowItWorksItem[] = [
 ];
 
 export const HowItWorks: FC = () => {
+  const [activeDialog, setActiveDialog] = useState<'login' | 'signup' | null>(null); // Track the active dialog
+
+  const openLoginDialog = () => setActiveDialog('login');
+  const openSignupDialog = () => setActiveDialog('signup');
+  const closeDialog = () => setActiveDialog(null);  // Close the dialog
+
   return (
     <section className="py-16">
       <div className="container mx-auto px-5">
@@ -46,10 +54,23 @@ export const HowItWorks: FC = () => {
         </div>
       </div>
       <div className="flex justify-center mt-10">
-          <a href="#" className="bg-primary text-white px-5 py-2.5 shadow-[3px_3px_0_#000] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none transition-all">
+          <a href="#" onClick={openSignupDialog} className="bg-primary text-white px-5 py-2.5 shadow-[3px_3px_0_#000] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none transition-all">
             Get started for free
           </a>
-        </div>
+      </div>
+        {/* Dialogs */}
+      <LoginDialog 
+        isOpen={activeDialog === 'login'} 
+        onClose={closeDialog} 
+        title="Login to your account"
+        onSwitchToSignup={openSignupDialog} // Handler for switching to signup
+      />
+      <SignupDialog 
+        isOpen={activeDialog === 'signup'} 
+        onClose={closeDialog} 
+        title="Create a new account"
+        onSwitchToLogin={openLoginDialog} // Handler for switching to login
+      />
     </section>
   );
 };

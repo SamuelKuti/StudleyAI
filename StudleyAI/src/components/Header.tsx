@@ -1,8 +1,15 @@
 import { useState } from 'react';
 import Logo from '../../public/assets/logo_orange.png';
+import { SignupDialog } from './SignupDialog';
+import { LoginDialog } from './LoginDialog';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeDialog, setActiveDialog] = useState<'login' | 'signup' | null>(null); // Track the active dialog
+
+  const openLoginDialog = () => setActiveDialog('login');
+  const openSignupDialog = () => setActiveDialog('signup');
+  const closeDialog = () => setActiveDialog(null);  // Close the dialog
 
   return (
     <header className="md:relative fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50">
@@ -74,12 +81,25 @@ export const Header = () => {
         <div className="hidden md:block ml-auto">
           <a
             href="#"
+            onClick={openSignupDialog}
             className="bg-primary text-white font-semibold px-5 py-2.5 shadow-[3px_3px_0_#000] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none transition-all"
           >
             Dashboard
           </a>
         </div>
       </div>
+      <LoginDialog 
+        isOpen={activeDialog === 'login'} 
+        onClose={closeDialog} 
+        title="Login to your account"
+        onSwitchToSignup={openSignupDialog} // Handler for switching to signup
+      />
+      <SignupDialog 
+        isOpen={activeDialog === 'signup'} 
+        onClose={closeDialog} 
+        title="Create a new account"
+        onSwitchToLogin={openLoginDialog} // Handler for switching to login
+      />
     </header>
   );
 };

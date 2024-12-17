@@ -1,7 +1,15 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import ShieldIcon from '../../public/assets/shield.png';
+import { LoginDialog } from './LoginDialog';
+import { SignupDialog } from './SignupDialog';
 
 export const Hero: FC = () => {
+  const [activeDialog, setActiveDialog] = useState<'login' | 'signup' | null>(null); // Track the active dialog
+
+  const openLoginDialog = () => setActiveDialog('login');
+  const openSignupDialog = () => setActiveDialog('signup');
+  const closeDialog = () => setActiveDialog(null);  // Close the dialog
+
   return (
     <section className="pb-5 md:pt-5 pt-20  flex flex-col items-center justify-center pb-15 bg-gradient-to-b from-white to-[#FFBDAB]">
       <div className="container flex flex-col items-center justify-center mx-auto px-5">
@@ -14,7 +22,7 @@ export const Hero: FC = () => {
             Crush Your Exams in Half the Study Time
           </h1>
           <div className="flex">
-            <button className="bg-primary text-white px-5 py-2.5 shadow-[3px_3px_0_#000] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none transition-all">
+            <button onClick={openSignupDialog} className="bg-primary text-white px-5 py-2.5 shadow-[3px_3px_0_#000] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none transition-all">
               Start Learning Faster - it's free
             </button>
             <div className="flex">
@@ -35,6 +43,18 @@ export const Hero: FC = () => {
           </div>
         </section>
       </div>
+      <LoginDialog 
+        isOpen={activeDialog === 'login'} 
+        onClose={closeDialog} 
+        title="Login to your account"
+        onSwitchToSignup={openSignupDialog} // Handler for switching to signup
+      />
+      <SignupDialog 
+        isOpen={activeDialog === 'signup'} 
+        onClose={closeDialog} 
+        title="Create a new account"
+        onSwitchToLogin={openLoginDialog} // Handler for switching to login
+      />
     </section>
   );
 };
