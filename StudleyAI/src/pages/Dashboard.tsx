@@ -1,6 +1,4 @@
 import { FC } from 'react';
-import Logo from '../../public/assets/logo_orange.png';
-import ProfilePic from '../../public/assets/kayhan.png';
 import { Sidebar } from '../components/dashboard/Sidebar';
 
 export const Dashboard: FC = () => {
