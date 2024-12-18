@@ -1,2 +1,0 @@
-# StudleyAI
-AI generated studying
