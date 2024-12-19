@@ -16,7 +16,6 @@ interface SidebarProps {
 export const Sidebar: FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
     const [sidebarWidth, setSidebarWidth] = useState(350);
 
-  // Update the sidebar width when sidebarOpen changes
   useEffect(() => {
     if (sidebarOpen) {
       setSidebarWidth(350);
@@ -32,14 +31,12 @@ export const Sidebar: FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
           sidebarOpen ? 'items-start' : 'items-center'
         }`}
       >
-        {/* Conditionally render the logo based on sidebar state */}
         {sidebarOpen ? (
           <img src={Logo} alt="Studley Logo" className="w-32 mb-8" />
         ) : (
           <img src={logoSmall} alt="Studley Logo" className="w-16 mb-8" />
         )}
 
-        {/* Create new study set button */}
         <button className={`w-full bg-primary flex items-center text-white px-5 py-2.5 mb-8 rounded-none shadow-[3px_3px_0_#000] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none transition-all ${
             sidebarOpen ? 'justify-start' : 'justify-center'
           }`}>
@@ -53,7 +50,7 @@ export const Sidebar: FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
             {sidebarOpen && <span>Dashboard</span>}
          </a>
 
-          <a href="#" className="flex items-center space-x-3 px-4 py-2 hover:bg-[#FFAB93] rounded-lg transition-colors">
+          {/* <a href="#" className="flex items-center space-x-3 px-4 py-2 hover:bg-[#FFAB93] rounded-lg transition-colors">
             <img src={FlashcardsIcon} alt="Flashcards" className="w-5 h-5" />
             {sidebarOpen && <span>Generate flashcards</span>}
           </a>
@@ -61,7 +58,7 @@ export const Sidebar: FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
           <a href="#" className="flex items-center space-x-3 px-4 py-2 hover:bg-[#FFAB93] rounded-lg transition-colors">
             <img src={QuizzesIcon} alt="Quizzes" className="w-5 h-5" />
             {sidebarOpen && <span>Generate quizzes</span>}
-          </a>
+          </a> */}
 
           <a href="#" className="flex items-center space-x-3 px-4 py-2 hover:bg-[#FFAB93] rounded-lg transition-colors">
             <img src={EinsteinIcon} alt="Personal Tutor" className="w-5 h-5" />
@@ -69,7 +66,6 @@ export const Sidebar: FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
           </a>
         </nav>
 
-        {/* Upgrade to premium button */}
         <div className="mt-auto">
           <button className="w-full bg-primary text-white px-5 py-2.5 rounded-none shadow-[3px_3px_0_#000] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none transition-all">
             <div className="flex items-center justify-start gap-1">
@@ -78,7 +74,6 @@ export const Sidebar: FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
             </div>
           </button>
 
-          {/* Profile info */}
           <div className={`flex items-center mt-6 ${sidebarOpen ? 'justify-start' : 'justify-center'}`}>
             <img src={ProfilePic} alt="Profile" className="w-10 h-10 rounded-full" />
             {sidebarOpen && <span className="ml-3">Emran Hassan</span>}
@@ -86,7 +81,6 @@ export const Sidebar: FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
         </div>
       </div>
 
-      {/* Button to toggle sidebar */}
       <button
         onClick={() => setSidebarOpen(!sidebarOpen)}
         className="w-[20px] h-screen text-primary flex items-center justify-center"
