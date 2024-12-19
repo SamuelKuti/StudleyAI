@@ -64,9 +64,9 @@ export const StudyBlock: FC<StudyBlockProps> = ({ studySetName, unfamiliar, lear
     <>
       <button className="bg-light border-[#E4E4E7] border-2 rounded-md w-full h-[250px] flex flex-col justify-center hover:bg-[#E4E4E7] transition-colors relative">
         <div className="flex justify-between items-center w-[95%]">
-          <h2 className="text-lg tracking-wide ml-6 mb-2">{currentName}</h2>
-          <button onClick={toggleDropdown} className="relative mb-4">
-            <img src={editIcon} alt="edit" className="w-4 h-4" />
+          <h2 className="md:text-lg tracking-wide ml-6 mb-2">{currentName}</h2>
+          <button onClick={toggleDropdown} className="relative md:mb-4 mb-2">
+            <img src={editIcon} alt="edit" className="w-4 h-4 md:mr-0 mr-6" />
           </button>
           {isDropdownOpen && (
             <div
@@ -96,7 +96,7 @@ export const StudyBlock: FC<StudyBlockProps> = ({ studySetName, unfamiliar, lear
               {unfamiliar.toFixed(0)}
             </div>
             <div
-              className="bg-red-100 text-red-600 border border-red-100 rounded-lg h-7 flex items-center px-2"
+              className="bg-red-100 text-red-600 border border-red-100 rounded-lg h-7 md:text-md text-sm flex items-center px-2"
               style={{ flexBasis: `${unfamiliarPercentage}%` }}
             >
               Unfamiliar
@@ -107,10 +107,10 @@ export const StudyBlock: FC<StudyBlockProps> = ({ studySetName, unfamiliar, lear
               {learning.toFixed(0)}
             </div>
             <div
-              className="bg-orange-100 text-orange-600 border border-orange-100 rounded-lg h-7 flex items-center px-2"
+              className="bg-orange-100 text-orange-600 border border-orange-100 md:text-md text-sm rounded-lg h-7 flex items-center px-2"
               style={{ flexBasis: `${learningPercentage}%` }}
             >
-              Still Learning
+              Learning
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -118,7 +118,7 @@ export const StudyBlock: FC<StudyBlockProps> = ({ studySetName, unfamiliar, lear
               {familiar.toFixed(0)}
             </div>
             <div
-              className="bg-blue-100 text-blue-600 border border-blue-100 rounded-lg h-7 flex items-center px-2"
+              className="bg-blue-100 text-blue-600 border border-blue-100 md:text-md text-sm rounded-lg h-7 flex items-center px-2"
               style={{ flexBasis: `${familiarPercentage}%` }}
             >
               Familiar
@@ -129,7 +129,7 @@ export const StudyBlock: FC<StudyBlockProps> = ({ studySetName, unfamiliar, lear
               {mastered.toFixed(0)}
             </div>
             <div
-              className="bg-green-100 text-green-600 border border-green-100 rounded-lg h-7 flex items-center px-2"
+              className="bg-green-100 text-green-600 border border-green-100 md:text-md text-sm rounded-lg h-7 flex items-center px-2"
               style={{ flexBasis: `${masteredPercentage}%` }}
             >
               Mastered
@@ -143,7 +143,7 @@ export const StudyBlock: FC<StudyBlockProps> = ({ studySetName, unfamiliar, lear
             max={100}
             className="w-5/6 h-2 rounded-full"
           ></progress>
-          <div className="text-lg float-right text-gray-600 w-auto w-1/6">
+          <div className="md:text-lg text-sm float-right text-gray-600 w-auto w-1/6">
             {Math.round(masteredPercentage * 100) / 100} %
           </div>
         </div>
