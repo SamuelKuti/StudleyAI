@@ -17,7 +17,7 @@ const AppLayout = () => {
       <main className={`flex-grow ${isDashboard ? '' : 'pt-[70px]'}`}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard name="Emran" />} />
           <Route path="/about" element={<About />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />

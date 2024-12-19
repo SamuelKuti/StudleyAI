@@ -2,17 +2,17 @@ import { FC } from 'react';
 
 const testimonials = [
   {
-    image: '../../../public/assets/jam_maddy.png',
+    image: '/assets/jam_maddy.png',
     quote: '"Studley AI completely changed how we study! In minutes, we get personalized flashcards and summaries from my lecture slides. Our grades have never been better!"',
     author: 'Jamila and Maddy'
   },
   {
-    image: '../../../public/assets/yahia.png',
+    image: '/assets/yahia.png',
     quote: '"I love the interactive chat feature. Studley AI made it feel like I was having a conversation with my textbook, and it really helped me understand tricky concepts."',
     author: 'Yahia Aly'
   },
   {
-    image: '../../../public/assets/sam.png',
+    image: '/assets/sam.png',
     quote: '"As someone who struggles with time management, Studley AI helps me cut through the noise. I upload my notes, and it instantly generates key points and quizzes. Studying is actually fun now!"',
     author: 'Samuel Kuti'
   }

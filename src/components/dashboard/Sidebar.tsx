@@ -1,5 +1,5 @@
-import Logo from '../../../public/assets/logo_orange.png';
-import ProfilePic from '../../../public/assets/kayhan.png';
+import Logo from '/assets/logo_orange.png';
+import ProfilePic from '/assets/kayhan.png';
 
 export const Sidebar = () => {
 

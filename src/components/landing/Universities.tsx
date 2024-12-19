@@ -1,9 +1,9 @@
 const universities = [
-  { name: 'Princeton', logo: '../../..//public/assets/princeton.png' },
-  { name: 'Berkeley', logo: '../../../public/assets/berkeley.png' },
-  { name: 'Stanford', logo: '../../../public/assets/stanford.png' },
-  { name: 'MIT', logo: '../../../public/assets/MIT.png' },
-  { name: 'Northwestern', logo: '../../../public/assets/northwestern.png' },
+  { name: 'Princeton', logo: '/assets/princeton.png' },
+  { name: 'Berkeley', logo: '/assets/berkeley.png' },
+  { name: 'Stanford', logo: '/assets/stanford.png' },
+  { name: 'MIT', logo: '/assets/MIT.png' },
+  { name: 'Northwestern', logo: '/assets/northwestern.png' },
 ];
 
 export const Universities = () => {

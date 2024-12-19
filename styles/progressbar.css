@@ -1,0 +1,32 @@
+/* Style the progress bar container */
+progress {
+    width: 100%;
+    height: 20px;
+    appearance: none; /* Remove default browser styling */
+  }
+  
+  /* Webkit browsers (Chrome, Safari, Edge) */
+  progress::-webkit-progress-bar {
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Webkit progress value (the fill) */
+  progress::-webkit-progress-value {
+    background-color: #3c75e8;
+    border-radius: 10px; /* Rounded corners */
+    transition: width 0.5s ease-in-out;
+  }
+  
+  /* Firefox */
+  progress::-moz-progress-bar {
+    background-color: #3c75e8;
+    border-radius: 10px; /* Rounded corners */
+  }
+  
+  /* For IE/Edge (legacy) */
+  progress {
+    color: #3c75e8; /* Sets the color of the filled portion */
+  }
+  

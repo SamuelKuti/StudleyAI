@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import ShieldIcon from '../../../public/assets/shield.png';
+import ShieldIcon from '/assets/shield.png';
 import { LoginDialog } from './LoginDialog';
 import { SignupDialog } from './SignupDialog';
 
