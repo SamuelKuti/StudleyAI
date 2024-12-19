@@ -5,21 +5,19 @@ import { LoginDialog } from './LoginDialog';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeDialog, setActiveDialog] = useState<'login' | 'signup' | null>(null); // Track the active dialog
+  const [activeDialog, setActiveDialog] = useState<'login' | 'signup' | null>(null);
 
   const openLoginDialog = () => setActiveDialog('login');
   const openSignupDialog = () => setActiveDialog('signup');
-  const closeDialog = () => setActiveDialog(null);  // Close the dialog
+  const closeDialog = () => setActiveDialog(null);
 
   return (
     <header className="md:relative fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50">
       <div className="container mx-auto w-4/5 flex items-center justify-between py-5">
-        {/* Logo */}
         <div className="flex items-center">
           <img src={Logo} alt="Studley Logo" className="w-24" />
         </div>
 
-        {/* Mobile Menu Button */}
         <button
           className={`md:hidden relative z-50 w-8 h-6 ${isMenuOpen ? 'fixed top-5 right-5' : ''}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -41,8 +39,7 @@ export const Header = () => {
             }`}
           />
         </button>
-
-        {/* Navigation Menu */}
+            
         <nav
           className={`fixed top-[70px] left-0 w-full h-1/4 bg-white flex flex-col items-center justify-center gap-5 transition-transform ${
             isMenuOpen ? 'translate-y-0' : '-translate-y-[calc(100%+50px)]'
@@ -63,7 +60,6 @@ export const Header = () => {
             Blog
           </a>
 
-          {/* Mobile Dashboard Button */}
           {isMenuOpen && (
             <div className="block md:hidden mt-5">
               <a
@@ -77,7 +73,6 @@ export const Header = () => {
           )}
         </nav>
 
-        {/* Desktop Dashboard Button */}
         <div className="hidden md:block ml-auto">
           <a
             href="#"
@@ -92,13 +87,13 @@ export const Header = () => {
         isOpen={activeDialog === 'login'} 
         onClose={closeDialog} 
         title="Login to your account"
-        onSwitchToSignup={openSignupDialog} // Handler for switching to signup
+        onSwitchToSignup={openSignupDialog}
       />
       <SignupDialog 
         isOpen={activeDialog === 'signup'} 
         onClose={closeDialog} 
         title="Create a new account"
-        onSwitchToLogin={openLoginDialog} // Handler for switching to login
+        onSwitchToLogin={openLoginDialog}
       />
     </header>
   );

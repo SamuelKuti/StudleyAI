@@ -4,11 +4,11 @@ import { LoginDialog } from './LoginDialog';
 import { SignupDialog } from './SignupDialog';
 
 export const Hero: FC = () => {
-  const [activeDialog, setActiveDialog] = useState<'login' | 'signup' | null>(null); // Track the active dialog
+  const [activeDialog, setActiveDialog] = useState<'login' | 'signup' | null>(null);
 
   const openLoginDialog = () => setActiveDialog('login');
   const openSignupDialog = () => setActiveDialog('signup');
-  const closeDialog = () => setActiveDialog(null);  // Close the dialog
+  const closeDialog = () => setActiveDialog(null);
 
   return (
     <section className="pb-5 md:pt-5 pt-20  flex flex-col items-center justify-center pb-15 bg-gradient-to-b from-white to-[#FFBDAB]">
@@ -47,13 +47,13 @@ export const Hero: FC = () => {
         isOpen={activeDialog === 'login'} 
         onClose={closeDialog} 
         title="Login to your account"
-        onSwitchToSignup={openSignupDialog} // Handler for switching to signup
+        onSwitchToSignup={openSignupDialog}
       />
       <SignupDialog 
         isOpen={activeDialog === 'signup'} 
         onClose={closeDialog} 
         title="Create a new account"
-        onSwitchToLogin={openLoginDialog} // Handler for switching to login
+        onSwitchToLogin={openLoginDialog}
       />
     </section>
   );

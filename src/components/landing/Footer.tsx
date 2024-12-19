@@ -1,14 +1,14 @@
 import { useState, FC } from 'react';
 import { Link } from 'react-router-dom';
-import { LoginDialog } from './LoginDialog';  // Import LoginDialog
-import { SignupDialog } from './SignupDialog'; // Import SignupDialog
+import { LoginDialog } from './LoginDialog';
+import { SignupDialog } from './SignupDialog';
 
 export const Footer: FC = () => {
-  const [activeDialog, setActiveDialog] = useState<'login' | 'signup' | null>(null); // Track the active dialog
+  const [activeDialog, setActiveDialog] = useState<'login' | 'signup' | null>(null);
 
   const openLoginDialog = () => setActiveDialog('login');
   const openSignupDialog = () => setActiveDialog('signup');
-  const closeDialog = () => setActiveDialog(null);  // Close the dialog
+  const closeDialog = () => setActiveDialog(null);
 
   return (
     <footer className="bg-black text-white px-5 md:px-40 py-10">
@@ -22,7 +22,7 @@ export const Footer: FC = () => {
                 className="w-[150px]"
               />
               <button
-                onClick={openSignupDialog} // Open the signup dialog
+                onClick={openSignupDialog}
                 className="bg-light text-black shadow-grayButton px-5 py-2.5 shadow-[3px_3px_0_#000] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none transition-all w-full md:w-auto"
               >
                 Try for free
@@ -62,18 +62,17 @@ export const Footer: FC = () => {
         </div>
       </div>
 
-      {/* Dialogs */}
       <LoginDialog 
         isOpen={activeDialog === 'login'} 
         onClose={closeDialog} 
         title="Login to your account"
-        onSwitchToSignup={openSignupDialog} // Handler for switching to signup
+        onSwitchToSignup={openSignupDialog}
       />
       <SignupDialog 
         isOpen={activeDialog === 'signup'} 
         onClose={closeDialog} 
         title="Create a new account"
-        onSwitchToLogin={openLoginDialog} // Handler for switching to login
+        onSwitchToLogin={openLoginDialog}
       />
     </footer>
   );

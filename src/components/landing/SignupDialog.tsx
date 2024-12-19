@@ -5,7 +5,7 @@ interface DialogProps {
   isOpen: boolean;
   onClose: () => void;
   title: string;
-  onSwitchToLogin: () => void; // Added handler for switching to login
+  onSwitchToLogin: () => void;
 }
 
 export const SignupDialog: FC<DialogProps> = ({ isOpen, onClose, onSwitchToLogin }) => {

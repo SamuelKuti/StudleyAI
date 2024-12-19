@@ -3,11 +3,11 @@ import { LoginDialog } from './LoginDialog';
 import { SignupDialog } from './SignupDialog';
 
 export const FinalCTA: FC = () => {
-  const [activeDialog, setActiveDialog] = useState<'login' | 'signup' | null>(null); // Track the active dialog
+  const [activeDialog, setActiveDialog] = useState<'login' | 'signup' | null>(null);
 
   const openLoginDialog = () => setActiveDialog('login');
   const openSignupDialog = () => setActiveDialog('signup');
-  const closeDialog = () => setActiveDialog(null);  // Close the dialog
+  const closeDialog = () => setActiveDialog(null);
 
   return (
     <section className="mx-10 my-[60px] md:mx-32">
@@ -30,13 +30,13 @@ export const FinalCTA: FC = () => {
         isOpen={activeDialog === 'login'} 
         onClose={closeDialog} 
         title="Login to your account"
-        onSwitchToSignup={openSignupDialog} // Handler for switching to signup
+        onSwitchToSignup={openSignupDialog}
       />
       <SignupDialog 
         isOpen={activeDialog === 'signup'} 
         onClose={closeDialog} 
         title="Create a new account"
-        onSwitchToLogin={openLoginDialog} // Handler for switching to login
+        onSwitchToLogin={openLoginDialog}
       />
     </section>
   );
