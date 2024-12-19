@@ -1,3 +1,4 @@
+import { Pencil } from 'lucide-react';
 import { FC, useState } from 'react';
 
 interface DialogProps {
@@ -12,8 +13,8 @@ export const RenameDialog: FC<DialogProps> = ({ isOpen, onClose, onRename }) => 
   const handleRename = (): void => {
     if (newName.trim()) {
       onRename(newName.trim());
-      setNewName(''); // Clear the input
-      onClose(); // Close the dialog
+      setNewName('');
+      onClose();
     }
   };
 
@@ -30,18 +31,21 @@ export const RenameDialog: FC<DialogProps> = ({ isOpen, onClose, onRename }) => 
           placeholder="New name"
           className="w-full p-2 border border-gray-300 rounded-md mb-4"
         />
-        <div className="flex justify-end gap-2">
+        <div className="flex justify-end gap-2 w-full">
           <button
             onClick={onClose}
-            className="bg-gray-300 text-black p-2 rounded-md"
+            className="bg-gray-300 text-black p-2 w-1/2 rounded-md"
           >
             Cancel
           </button>
-          <button
+        <button
             onClick={handleRename}
-            className="bg-blue-500 text-white p-2 rounded-md"
+            className="bg-blue-500 text-white p-2 w-1/2 rounded-md"
           >
-            Rename
+            <div className="flex items-center justify-center gap-1">
+              <div>Rename</div>
+              <Pencil className="w-4 h-4" />
+            </div>
           </button>
         </div>
       </div>

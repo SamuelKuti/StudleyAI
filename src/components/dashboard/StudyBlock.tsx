@@ -1,9 +1,10 @@
 import { FC, useState, useEffect, useRef } from 'react';
 import '../../../styles/progressbar.css';
 import editIcon from '/assets/edit.png';
-import deleteIcon from '/assets/trash.png';
-import pencilIcon from '/assets/pencil.png';
+import { Trash } from 'lucide-react';
+import { Pencil } from 'lucide-react';
 import { RenameDialog } from './RenameDialog';
+import { DeleteDialog } from './DeleteDialog';
 
 interface StudyBlockProps {
   studySetName: string;
@@ -15,6 +16,7 @@ interface StudyBlockProps {
 
 export const StudyBlock: FC<StudyBlockProps> = ({ studySetName, unfamiliar, learning, mastered, familiar }) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [isDeleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [isRenameDialogOpen, setRenameDialogOpen] = useState(false);
   const [currentName, setCurrentName] = useState(studySetName);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -35,14 +37,18 @@ export const StudyBlock: FC<StudyBlockProps> = ({ studySetName, unfamiliar, lear
     setRenameDialogOpen(true);
   };
 
+  const handleDeleteClick = (): void => {
+    setDropdownOpen(false);
+    setDeleteDialogOpen(true);
+  };
+
   const handleRename = (newName: string): void => {
     setCurrentName(newName);
     setRenameDialogOpen(false);
   };
 
   const handleDelete = (): void => {
-    console.log('Delete clicked');
-    setDropdownOpen(false);
+    setDeleteDialogOpen(true);
   };
 
   const handleClickOutside = (event: MouseEvent): void => {
@@ -78,14 +84,14 @@ export const StudyBlock: FC<StudyBlockProps> = ({ studySetName, unfamiliar, lear
                 className="w-full px-2 py-1 text-left text-gray-700 text-sm hover:bg-gray-100 rounded-t-lg flex gap-1 items-center"
               >
                 <div>Rename</div>
-                <img src={pencilIcon} alt="rename" className="w-4 h-4" />
+                <Pencil className="w-4 h-4" />
               </button>
               <button
-                onClick={handleDelete}
+                onClick={handleDeleteClick}
                 className="w-full px-2 py-1 text-left text-red-500 text-sm hover:bg-gray-100 rounded-b-lg flex gap-1 items-center"
               >
                 <div>Delete</div>
-                <img src={deleteIcon} alt="delete" className="w-4 h-4" />
+                <Trash className="w-4 h-4" />
               </button>
             </div>
           )}
@@ -152,6 +158,11 @@ export const StudyBlock: FC<StudyBlockProps> = ({ studySetName, unfamiliar, lear
         isOpen={isRenameDialogOpen}
         onClose={() => setRenameDialogOpen(false)}
         onRename={handleRename}
+      />
+      <DeleteDialog
+        isOpen={isDeleteDialogOpen}
+        onClose={() => setDeleteDialogOpen(false)}
+        onDelete={handleDelete}
       />
     </>
   );
